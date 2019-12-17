@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasklist</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+  <script src="tasklist.js" defer></script>
+</head>
+<body>
+  <div id="app">
+    <h1>TASKLIST</h1>
+    <h3>
+        <div class="tasks">
+            <div class="task" v-for="(task, index) in tasks">
+              <p>
+                  <input type="checkbox">{{ task }}</input>
+                  <button v-on:click="tasks.splice(index,1)">Delete</button>
+              </p>
+            </div>
+          </div>
+    </h2>
+
+    <div class="add-task">
+      <h2>Add task</h2>
+      <label for="task">New task</label>
+      <div class="new-task">
+        <input type="text" value="newTask" placeholder="New task" v-model="newTask"/>
+        <button v-on:click="tasks.push(newTask)">Add Task</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
